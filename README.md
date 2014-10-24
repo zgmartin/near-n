@@ -27,7 +27,7 @@ The reason the kd-tree is so powerful is because of its ability to mimic the eff
 
 The kd-tree is built with the medians of the the data set after sorting. The data is then inserted left or right in the tree based on the ith element in vector(plane) of data.
 
-Do to the large dimensionality of bit images(64x64=4096), the images were transformed to avoid high dimensional search. Large dimensions within machine learning is a common problem(the curse of dimensionality) because space grows exponentially for every dimension added. The data was transformed to a lower dimension(8x8=64) to a more manageable size. 
+Do to the large dimensionality of bit images(64x64=4096), the images were transformed to avoid high dimensional search. Large dimensions within machine learning is a common problem(the curse of dimensionality) because space grows exponentially for every dimension added. The data was transformed to a lower dimension(8x8=64). 
 
 The nearest neighbors can be found by using a variety of distance measuring metrics. The metrics used in this program are Euclidean distance and Manhattan distance.
 
