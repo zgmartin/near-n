@@ -1,5 +1,5 @@
 import unittest
-from lin_alg.math_objects import vector
+from lin_alg.objects import vector
 from lin_alg.metrics import euclid
 from lin_alg.metrics import manhat
 

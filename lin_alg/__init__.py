@@ -1,2 +1,2 @@
-from math_objects import *
+from objects import *
 from metrics import *
