@@ -29,9 +29,9 @@ The kd-tree is built with the medians of the the data set after sorting. The dat
 
 Do to the large dimensionality of bit images(64x64=4096), the images were transformed to avoid high dimensional search. Large dimensions within machine learning is often a problem(the curse of dimensionality), so the data was transformed to a lower dimension(8x8=64). 
 
-The nearest neighbors can be found by using a variety of distance measuring metrics. The metrics used in this program are euclidean distance and Manhattan distance.
+The nearest neighbors can be found by using a variety of distance measuring metrics. The metrics used in this program are Euclidean distance and Manhattan distance.
 
-The data set for this project ca be found at
+The data set for this project ca be found at:
 http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits
 
 ###Results: 

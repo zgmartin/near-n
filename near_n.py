@@ -3,24 +3,13 @@ from kd_tree import KDTree
 from collections import Counter
 from view import plot
 import sys
-import time
-
-def train_len(start, end, inc):
-    train_len = []
-    
-    while start<end:
-        start*=inc
-        train_len.append(start)
-    train_len.append(end)
-
-    return train_len
 
 def errors(kd, train_len, train, test):
     """
-    Records test error rate on specific kd-tree trained.
+    Records test error rates on specific kd-tree training interval.
         
         kd      [instance of kd]
-        trains  [training list]
+        trains  [training intervals]
         train   [train data]
         test    [test data]
     """
@@ -28,7 +17,8 @@ def errors(kd, train_len, train, test):
 
     #trains kd-tree
     for x in train_len:
-        error=0
+        error = 0
+        #builds kd-tree with specific interval of data
         kd.build_tree(train.data.keys()[:x])
 
         #tests data on kd-tree
@@ -38,18 +28,14 @@ def errors(kd, train_len, train, test):
             nearest = kd.near_search(y, kd.root, nearest={})
 
             #classifies nearest neighbors 
-            classes=[]
+            classes = []
             for i in nearest.values():
                 classes.append(train.data[i])   
             
-            #print classes
-            #print nearest.keys()
-            #mode of nearest classification
+            #most common of nearest classification
             mode = Counter(classes).most_common()[0][0]
             #test classification 
             clas = test.data[y]
-            #print clas
-            #time.sleep(1)
 
             #tests if error in kd-tree classification with test classification
             if mode != clas:
@@ -74,23 +60,21 @@ def nearest_n(train_file, test_file):
         plots error             [results]
     """
 
+    #initialization
     train = Data()
     test = Data()
-
-    kds = [KDTree(1,'dc')]
+    kd = KDTree(1,'dc')
         
     #train
     train.extract(train_file)
-    #x = train_len(1,len(train.data),10)
-    x=[10,100,500,len(train.data)]
+    x = [10,100,500,len(train.data)]
           
     #test
-    ys=[]
     test.extract(test_file)
-    y = errors(kds[0], x, train, test)
+    y = errors(kd, x, train, test)
 
     #results
-    plot(x, y, kds[0])  
+    plot(x, y)  
                 
 if __name__ == '__main__':
     args = sys.argv[:]

@@ -3,10 +3,10 @@ from lin_alg import metrics
 
 class KDTree(tree):
     """
-    kd-tree:
-
-        k-dimensional binary tree
-        root = median 
+    A K-Dimensional binary tree search tree.
+        
+        root        [tree root] 
+        neighbors   [number of neighbors]
 
     options:            
         insertion:
@@ -79,7 +79,7 @@ class KDTree(tree):
             for i in range(2): 
                 node + None
 
-        #recursion end 
+        #base case 
         if node.data == None:
             node.data = data
             return node
@@ -87,7 +87,7 @@ class KDTree(tree):
         #hyperplane split
         i = level%len(data)                  
 
-        #recursion left or right 
+        #inductive case 
         if data[i] < node.data[i]:   
             return self.insert_search(data, node.children[0], level+1)
         else:
@@ -99,9 +99,14 @@ class KDTree(tree):
         """
         Nearest Neighbor Search on kd-tree.
 
+            data    [search point]
+            node    [starting node]
             nearest [hashmap key:distance value:vector] 
+            
             algorithm:
-
+                move left or right based plane split
+                if distance < best
+                    insert current node into list 
 
             distance metrics:
                 euclidean: sum((x-y)^2))
