@@ -1,4 +1,4 @@
-class node:
+class Node:
     """A generalized node structure.
        
        data             [information contained in node]
@@ -12,20 +12,48 @@ class node:
         self.children = []
 
     def __add__(self, data):
-        """Adds child to self."""
-        
-        #appending nodes
-        if isinstance(data, node):
-            self.children.append(data)
-        else:    
-            n = node(data, self)
-            self.children.append(n)
-
-    def __eq__(self, node):
-        if(self.data == node.data):
-            return True
+        if isinstance(data, Node):
+            return self.data + data.data
         else:
-            return False
+            return self.data + data
+            
+        
+    def __eq__(self, data):
+        if isinstance(data, Node):
+            return self.data == data.data
+        else:
+            return self.data == data
+        
+    def __ne__(self, data):
+        if isinstance(data, Node):
+            return self.data != data.data
+        else:
+            return self.data != data
+             
+
+    def __lt__(self, data):
+        if isinstance(data, Node):
+            return self.data < data.data
+        else:
+            return self.data < data
+            
+
+    def __gt__(self, data):
+        if isinstance(data, Node):
+            return self.data > data.data
+        else:
+            return self.data > data
 
     def __str__(self):
         return str(self.data)
+
+    def append(self, data=None):
+        """Appends data to self."""
+        
+        if isinstance(data, Node):
+            data.parent = self
+            self.children.append(data)
+        else:
+            n = Node(data, self)
+            self.children.append(n)
+    

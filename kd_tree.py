@@ -1,9 +1,9 @@
-from trees import tree
+from trees import Tree
 from lin_alg import metrics
 
-class KDTree(tree):
+class KDTree(Tree):
     """
-    A K-Dimensional binary tree search tree.
+    A K-Dimensional binary search tree.
         
         root        [tree root] 
         neighbors   [number of neighbors]
@@ -21,16 +21,18 @@ class KDTree(tree):
     def __init__(self, neighbors=1, *opt):
         self.opt = opt
         self.neighbors = neighbors
+        self.LEFT = 0
+        self.RIGHT = 1
          
-        tree.__init__(self)
+        Tree.__init__(self)
 
     def build_tree(self, data):
         """Builds kd-tree from data."""
 
-        data.sort()                                      #sort data
-        self.insert_medians(data)                       #inserts data set into tree  
+        data.sort()                     #sort data
+        self.append_medians(data)       #inserts data set into tree  
 
-    def insert_medians(self, data):
+    def append_medians(self, data):
         """Inserts data set into kd-tree based on median."""
         
         #base case
@@ -40,20 +42,20 @@ class KDTree(tree):
         median = self.median(data)
         data.remove(median)
 
-        self.insert_search(median, self.root)                            #searches for place to insert    
+        self.append(median, self.root)   #appends data into tree    
                     
         #inductive case
         #divide and conquer
         if 'dc' in self.opt:
             i = len(data)/2
-            data = data[:i],data[i:]                       #splits data into left and right
+            data = data[:i],data[i:]            #splits data into left and right
         
-            self.insert_medians(data[0])                    #left            
-            self.insert_medians(data[1])                    #right
+            self.append_medians(data[self.LEFT])                 
+            self.append_medians(data[self.RIGHT])   
             
         #default
         else:    
-            self.insert_medians(data)
+            self.append_medians(data)
         
 
     def median(self, data):
@@ -63,7 +65,7 @@ class KDTree(tree):
 
         return median   
 
-    def insert_search(self, data, node, level=0):
+    def append(self, data, node, level=0):
         """
         Searches tree for location to place data.
             
@@ -77,10 +79,10 @@ class KDTree(tree):
         #creates binary devision
         if node.children == []:       
             for i in range(2): 
-                node + None
+                node.append()
 
         #base case 
-        if node.data == None:
+        if node == None:
             node.data = data
             return node
 
@@ -89,15 +91,15 @@ class KDTree(tree):
 
         #inductive case 
         if data[i] < node.data[i]:   
-            return self.insert_search(data, node.children[0], level+1)
+            return self.append(data, node.children[self.LEFT], level+1)
         else:
-            return self.insert_search(data, node.children[1], level+1)
+            return self.append(data, node.children[self.RIGHT], level+1)
                 
     
 
-    def near_search(self, data, node, level=0, nearest={}):
+    def nearest(self, data, node, level=0, nearest={}):
         """
-        Nearest Neighbor Search on kd-tree.
+        Nearest neighbor search on kd-tree.
 
             data    [search point]
             node    [starting node]
@@ -140,14 +142,14 @@ class KDTree(tree):
         #binary tree split
         if data[i] < node.data[i]:
             #branch = 0
-            return self.near_search(data,node.children[0],level+1,nearest)    
+            return self.nearest(data,node.children[0],level+1,nearest)    
         else:
             #branch = 1
-            return self.near_search(data,node.children[1],level+1,nearest)
+            return self.nearest(data,node.children[1],level+1,nearest)
 
         #hypersphere intersection hyperplane
         #if abs(node.parent.data[i]-data[i]) < max(nearest.keys()) and node.parent not in visited:
         #    branch=(branch+1)%2
         #    node=node.parent
         #    visited.append(node)
-        #    return self.near_search(data,node.children[branch],level+1,nearest,branch,visited)
+        #    return self.nearest(data,node.children[branch],level+1,nearest,branch,visited)

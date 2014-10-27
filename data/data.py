@@ -1,4 +1,4 @@
-from lin_alg import vector
+from lin_alg import Vector
 
 class Data:
     """
@@ -26,6 +26,6 @@ class Data:
 
         tup = map(int, tuple(data))   #transforms char->int
         clas = tup.pop()              #classification
-        vec = vector(tup)             #image vector       
+        vec = Vector(tup)             #image vector       
         
         self.data[vec]=clas           #dictionary lookup

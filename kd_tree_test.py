@@ -1,10 +1,11 @@
 import unittest
 from kd_tree import KDTree
+from lin_alg import Vector
 
 class KDTreeTest(unittest.TestCase):
 
     def setUp(self):
-        self.data = [(1,),(2,),(0,)]    
+        self.data = [Vector([1]),Vector([2]),Vector([0])]    
         self.kd_tree = KDTree() 
 
     def median_test(self):
@@ -13,10 +14,10 @@ class KDTreeTest(unittest.TestCase):
         
         self.assertEquals(m, median)
 
-    def insert_search_test(self):
+    def append_test(self):
         def f(data):
-            for e in data:
-                self.kd_tree.insert_search(e, self.kd_tree.root)
+            for x in data:
+                self.kd_tree.append(x, self.kd_tree.root)
 
         f(self.data)
 
@@ -24,14 +25,18 @@ class KDTreeTest(unittest.TestCase):
         self.assertEquals(self.data[1], self.kd_tree.root.children[1].data)
         self.assertEquals(self.data[2], self.kd_tree.root.children[0].data)
 
-    def insert_medians_test(self):
-        self.data.sort()
-        self.kd_tree.insert_medians(self.data)
+    def append_medians_test(self):
+        self.kd_tree.append_medians(self.data)
 
-        self.assertEquals(self.data[0], self.kd_tree.root.data)
-        self.assertEquals(self.data[1], self.kd_tree.root.children[1].data)
-        self.assertEquals(self.data[2], self.kd_tree.root.children[0].data)
+        #self.assertEquals(Vector([2]), self.kd_tree.root.data)
+        #self.assertEquals(Vector([1]), self.kd_tree.root.children[1].data)
+        #self.assertEquals(Vector([0]), self.kd_tree.root.children[0].data)
 
-    
+    def nearest_test(self):
+        self.kd_tree.append_medians(self.data)
+
+        nearest=self.kd_tree.nearest(Vector([3]), self.kd_tree.root)
+        self.assertEquals(Vector([2]), nearest.values()[0])
+
 if __name__ == '__main__':
     unittest.main()

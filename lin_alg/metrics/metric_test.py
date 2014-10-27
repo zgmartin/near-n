@@ -1,13 +1,13 @@
 import unittest
-from lin_alg.objects import vector
+from lin_alg.objects import Vector
 from lin_alg.metrics import euclid
 from lin_alg.metrics import manhat
 
 class MetricTest(unittest.TestCase):
 
     def setUp(self):
-        self.v = vector((1,1))
-        self.u = vector((3,3))
+        self.v = Vector((1,1))
+        self.u = Vector((3,3))
 
     def euclid_test(self):
         ans = 8

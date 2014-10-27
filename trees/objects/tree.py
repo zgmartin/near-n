@@ -1,15 +1,15 @@
-from node import node
+from node import Node
 
-class tree:
+class Tree:
     """
     A generalized tree with n children.
 
         root        [the root node] 
-        pointer     [a pointer to current position on tree]
+        ptr         [a pointer to current position on tree]
     """
 
     def __init__(self, data=None):
-        self.root = node(data)
+        self.root = Node(data)
         self.ptr = self.root
 
     def __str__(self, level=0, node=None):
@@ -22,26 +22,16 @@ class tree:
             s+= self.__str__(level+1,child)
        
         return s
-
-    def __add__(self, data):
-
-        self.add_child(data)
-
-    def add_child(self, data):
-        """Adds child to pointer location on tree."""
         
-        n = node(data, self.ptr)
-        self.ptr + n
-
-    def insert(self, data):
+    def append(self, data):
         """Inserts data into pointer location on tree."""
         
-        self.ptr.data = data
+        self.ptr.append(data)
 
-    def forward(self, next_pos):
+    def forward(self, pos):
         """Moves pointer to a specific child node on the tree."""
 
-        self.ptr = self.ptr.children[next_pos]
+        self.ptr = self.ptr.children[pos]
 
     def back(self):
         """Moves pointer back to parent."""
@@ -54,6 +44,6 @@ class tree:
         self.ptr = self.root
 
     def clear(self):
-        """Clears tree by setting root to new Node"""
+        """Removes all nodes from tree by setting root to new Node"""
 
-        self.root = node()
+        self.root = Node()

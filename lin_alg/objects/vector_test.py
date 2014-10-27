@@ -1,19 +1,19 @@
 import unittest
-from vector import vector
+from vector import Vector
 
 class VectorTest(unittest.TestCase):
 
     def setUp(self):
-        self.v = vector((1,1))
-        self.u = vector((2,2))
+        self.v = Vector((1,1))
+        self.u = Vector((2,2))
 
     def add_test(self):
-        ans = vector((3,3))
+        ans = Vector((3,3))
         add = self.v + self.u
         self.assertEquals(ans, add)
 
     def sub_test(self):
-        ans = vector((-1,-1))
+        ans = Vector((-1,-1))
         dif = self.v - self.u
         self.assertEquals(ans, dif)
 

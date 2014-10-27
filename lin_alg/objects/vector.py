@@ -1,4 +1,4 @@
-class vector(tuple):
+class Vector(tuple):
     """
     A vector is a mathematically defined concept on operators + *.
 
@@ -25,7 +25,7 @@ class vector(tuple):
             v, u in V
             v + u = v1+u1, ..., vn+un
         """
-        return vector(x + y for x, y in zip(self, vec))
+        return Vector(x + y for x, y in zip(self, vec))
 
         
 
@@ -37,7 +37,7 @@ class vector(tuple):
             v, u in V
             v - u = v1-u1, ..., vn-un
         """
-        return vector(x - y for x, y in zip(self, vec))
+        return Vector(x - y for x, y in zip(self, vec))
 
     
     #multiplication [not unique so cannot override (*) operator]
@@ -56,8 +56,9 @@ class vector(tuple):
         def: dot product
              v*u = v1*u1 + ... + vn*un
         """        
-        ans = 0
-        for x, y in zip(self, vec):
-            ans += x * y
         
-        return ans
+        prod = 0
+        for x, y in zip(self, vec):
+            prod += x * y
+        
+        return prod

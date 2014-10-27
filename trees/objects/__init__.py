@@ -1,1 +1,1 @@
-from tree import tree
+from tree import Tree

@@ -1,7 +1,7 @@
 from data import Data
 from kd_tree import KDTree
 from collections import Counter
-from view import plot
+from views import graph
 import sys
 
 def errors(kd, train_len, train, test):
@@ -25,7 +25,7 @@ def errors(kd, train_len, train, test):
         for y in test.data.keys():
             
             #finds nearest neighbors
-            nearest = kd.near_search(y, kd.root, nearest={})
+            nearest = kd.nearest(y, kd.root, nearest={})
 
             #classifies nearest neighbors 
             classes = []
@@ -36,7 +36,7 @@ def errors(kd, train_len, train, test):
             mode = Counter(classes).most_common()[0][0]
             #test classification 
             clas = test.data[y]
-
+            
             #tests if error in kd-tree classification with test classification
             if mode != clas:
                 error+=1
@@ -74,7 +74,7 @@ def nearest_n(train_file, test_file):
     y = errors(kd, x, train, test)
 
     #results
-    plot(x, y)  
+    graph.plot(x, y)  
                 
 if __name__ == '__main__':
     args = sys.argv[:]
