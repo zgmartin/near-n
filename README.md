@@ -30,8 +30,8 @@ The reason the kd-tree is so powerful is because of its ability to mimic the eff
 Do to the large dimensionality of bit images, the images were __transformed__ to avoid high dimensional search.
 
 * Transform: 64x64 -> 8x8 
-* input: 64x64 bitmap [feature space: 4096 dimensional]
-* output: 8x8  bitmap [feature space: 64 dimensional]
+    * input: 64x64 bitmap       [feature space: 4096 dimensional]
+    * output: 8x8  bitmap       [feature space: 64 dimensional]
 
 Large dimensions within machine learning is a common problem known as the __curse of dimensionality__ because space grows _exponentially_ for every dimension added. The data was transformed to a more manageable size. 
 
