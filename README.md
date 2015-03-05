@@ -24,7 +24,7 @@ The goal of the program is to identify numbers based on the their bitmap represe
 
 To accomplish the goal of image classification a nearest neighbor approach was taken. Nearest neighbors is a simple and fast method for identifying and classifying data.
 
-The data structure used to perform nearest neighbor search is a k-dimensional tree(kd-tree). Kd-trees provide a fast search for classification. A balanced kd-tree has a time complexity of `log(n)`.
+The data structure used to perform nearest neighbor search is a `k-dimensional tree`(kd-tree). Kd-trees provide a fast search for classification. A balanced kd-tree has a time complexity of `log(n)`.
 
 <img src = "./about/kd-tree.png">
 
@@ -34,9 +34,9 @@ The reason the kd-tree is so powerful is because of its ability to mimic the eff
 
 Do to the large dimensionality of bit images, the images were `transformed` to avoid high dimensional search.
 
-Transform: 64x64 -> 8x8 
-input: 64x64 bitmap [feature space: 4096 dimensional]
-output: 8x8  bitmap [feature space: 64 dimensional]
+`Transform: 64x64 -> 8x8` 
+`input: 64x64 bitmap [feature space: 4096 dimensional]`
+`output: 8x8  bitmap [feature space: 64 dimensional]`
 
 Large dimensions within machine learning is a common problem known as the `curse of dimensionality` because space grows exponentially for every dimension added. The data was transformed to a more manageable size. 
 
