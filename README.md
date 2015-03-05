@@ -37,8 +37,9 @@ Large dimensions within machine learning is a common problem known as the __curs
 
 The nearest neighbors can be found by using a variety of distance measuring metrics.
 
-* Euclidean 
-* Manhattan 
+* Metrics
+    * Euclidean 
+    * Manhattan 
 
 The data set for this project can be found [here](http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits).
 
