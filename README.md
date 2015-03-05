@@ -35,10 +35,10 @@ Do to the large dimensionality of bit images, the images were __transformed__ to
 
 Large dimensions within machine learning is a common problem known as the __curse of dimensionality__ because space grows _exponentially_ for every dimension added. The data was transformed to a more manageable size. 
 
+The nearest neighbors can be found by using a variety of distance measuring metrics.
+
 * Euclidean 
 * Manhattan 
-
-The nearest neighbors can be found by using a variety of distance measuring metrics.
 
 The data set for this project can be found [here](http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits).
 
