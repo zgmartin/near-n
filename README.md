@@ -2,14 +2,12 @@
 <img src = "./about/near-n.png">
 
 ##About:
-####name: near_n
-####function: This is a program that classifies images. 
-
-####input:
-bitmap of image: 01, 10
-
-####output:
-classification of image: 0 1 2 3 4 5 6 7 8 9
+|        |                   |  
+|--------|-------------------|
+|name    |  near_n           | 
+|function| classifies images |
+|input   | bitmap of image   |
+|output  | classification    |
 
 ##Info:
 Pattern classification is a part of the field of Machine Learning. The goal of classification is to partition or modularize the space of possible choices into distinct classes of objects based on features(variables) about the data. 
