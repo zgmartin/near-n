@@ -8,18 +8,18 @@ near_n
 This is a program that classifies images. 
 
 #####input:
-bitmap of image
-`01
-10`
+* bitmap of image
+* 01
+* 10
 #####output:
-classification of image
-`0 1 2 3 4 5 6 7 8 9`
+* classification of image
+* 0 1 2 3 4 5 6 7 8 9
 
 ###Info:
 Pattern classification is a part of the field of Machine Learning. The goal of classification is to partition or modularize the space of possible choices into distinct classes of objects based on features(variables) about the data. 
 
 The classification in this problem is related to images of numbers.
-`classifiers: 0 1 2 3 4 5 6 7 8 9`
+* classifiers: 0 1 2 3 4 5 6 7 8 9 
 The goal of the program is to identify numbers based on the their bitmap representations. 
 
 To accomplish the goal of image classification a nearest neighbor approach was taken. Nearest neighbors is a simple and fast method for identifying and classifying data.
@@ -34,9 +34,9 @@ The reason the kd-tree is so powerful is because of its ability to mimic the eff
 
 Do to the large dimensionality of bit images, the images were `transformed` to avoid high dimensional search.
 
-`Transform: 64x64 -> 8x8` 
-`input: 64x64 bitmap [feature space: 4096 dimensional]`
-`output: 8x8  bitmap [feature space: 64 dimensional]`
+* Transform: 64x64 -> 8x8 
+* input: 64x64 bitmap [feature space: 4096 dimensional]
+* output: 8x8  bitmap [feature space: 64 dimensional]
 
 Large dimensions within machine learning is a common problem known as the `curse of dimensionality` because space grows exponentially for every dimension added. The data was transformed to a more manageable size. 
 
@@ -52,13 +52,13 @@ The data set for this project can be found [here](http://archive.ics.uci.edu/ml/
 |kd-1   |  12%     | 1797 | 3823|
 
 ###Run:
-`cd /dir/of/near_n`
-`python near_n.py ./img-data/*`
+* `cd /dir/of/near_n`
+* `python near_n.py ./img-data/*`
 
 ###Dependencies:   
 `pip install matplotlib`
 
 ###TODO:
-perform Principle Component Analysis (PCA)
-integrate with pygame
-place kd-tree in data base 
+* perform Principle Component Analysis (PCA)
+* integrate with pygame
+* place kd-tree in data base 
