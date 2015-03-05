@@ -10,7 +10,7 @@
 
 
 ##Info:
-Pattern classification is a part of the field of Machine Learning. The goal of classification is to partition or modularize the space of possible choices into distinct classes of objects based on features(variables) about the data. 
+Pattern classification is a part of the field of Machine Learning. The goal of classification is to _partition_ or modularize the space of possible choices into distinct classes of objects based on _features_ about the data. 
 
 **Classifiers: 0 1 2 3 4 5 6 7 8 9**
 
