@@ -41,9 +41,9 @@ The data set for this project can be found [here](http://archive.ics.uci.edu/ml/
 ##Results: 
 <img src = "./results/kd1.png">
 
-|       |Error Rate|Test  |Train|
-|-------|----------|------|-----|
-|kd-1   |  12%     | 1797 | 3823|
+|       |Error|Test  |Train|
+|-------|-----|------|-----|
+|kd-1   | 12% | 1797 | 3823|
 
 ###Run:
 * `cd /dir/of/near_n`
