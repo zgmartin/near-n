@@ -12,9 +12,6 @@
 ##Info:
 Pattern classification is a part of the field of Machine Learning. The goal of classification is to __partition__ or modularize the space of possible choices into distinct classes of objects based on __features__ about the data. 
 
-* Classifiers: 
-    * __0 1 2 3 4 5 6 7 8 9__
-
 The classification in this problem is related to images of numbers. The goal of the program is to identify numbers based on the their bitmap representations. 
 
 To accomplish the goal of image classification a nearest neighbor approach was taken. Nearest neighbors is a simple and fast method for identifying and classifying data.
