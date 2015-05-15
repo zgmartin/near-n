@@ -53,7 +53,7 @@ The data set for this project can be found [here](http://archive.ics.uci.edu/ml/
 ##Dependencies:   
 `pip install matplotlib`
 
-##TODO:
+##Next Step:
 * Principle Component Analysis (PCA)
 * Pygame integration
 * KD-Tree in data base 
